@@ -1,1 +1,42 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>과제 10 | 서울 기온과 오존 관계 탐구</title><style>body{margin:0;background:#f5f3ec;color:#20241f;font-family:Pretendard,"Noto Sans KR",sans-serif;line-height:1.9}main{width:min(860px,calc(100% - 36px));margin:60px auto 100px}a{color:#365c42}h1{font-size:42px;line-height:1.2;letter-spacing:-.05em;color:#294933}h2{margin-top:46px;color:#294933}.meta{color:#697066}.box{background:#fffef9;border:1px solid #d9d7cc;border-radius:18px;padding:24px;margin:18px 0}.num{font-size:30px;font-weight:900;color:#365c42}.note{background:#fff8dd;border:1px solid #e4d69a;border-radius:14px;padding:14px 16px}</style></head><body><main><a href="index.html">← 포트폴리오로 돌아가기</a><h1>2025년 오존 시즌 서울의 일평균 기온과 일별 오존 자료값의 관계</h1><p class="meta">공개 도시-일 데이터의 상관분석 · 오예림 · 2026.09.09</p><div class="box"><strong>최초 가설</strong><p>서울의 일평균 기온이 높을수록 같은 날의 일평균 오존(O₃) 농도가 높을 것이다.</p></div><h2>연구 질문</h2><p>기온과 오존은 관련될 수 있지만 일사량, 강수, 전구물질, 수송 등 여러 조건이 함께 작용합니다. 그래서 이번 연구에서는 범위를 좁혀 “2025년 4~6월 서울의 단순 일별 자료에서도 일평균 기온과 O₃ 자료값의 양의 관계가 나타나는가?”를 확인했습니다.</p><h2>데이터와 방법</h2><p>공개 환경자료에서 서울의 2025년 4월 1일부터 6월 30일까지 91일을 추출했습니다. 1차 분석은 일평균 기온과 같은 날 O₃ 자료값의 Pearson 상관이며, 보조적으로 Spearman 순위상관과 단순선형회귀를 확인했습니다. 결과에 유리한 행을 따로 제외하지 않았습니다.</p><div class="box"><div class="num">91일</div><p>1차 분석 표본</p><div class="num">r = -0.0697</div><p>Pearson 상관 · p = 0.5115</p><div class="num">ρ = -0.0479</div><p>Spearman 순위상관 · p = 0.6518</p><div class="num">R² = 0.00486</div><p>단순선형회귀 설명력</p></div><h2>결과</h2><p>91일 전체에서 기온과 O₃ 자료값의 Pearson 상관은 -0.0697로 거의 0에 가까운 약한 음의 방향이었습니다. Spearman 상관도 -0.0479였고, 선형회귀의 R²는 0.00486으로 매우 작았습니다. 따라서 “기온이 높을수록 같은 날 O₃가 높다”는 단순한 양의 관계는 이 표본에서 확인되지 않았습니다.</p><p>기온 사분위에서도 가장 높은 기온군이 가장 높은 O₃를 보이지 않았습니다. 월별 사후 분석에서는 6월에 r=-0.431, p=0.017의 음의 상관이 나타났지만, 이 분석은 1차 결과를 본 뒤 관계의 차이를 살펴본 사후 탐색이므로 독립적인 확증 결과로 과도하게 해석하지 않았습니다.</p><h2>결론</h2><p><strong>최초 가설은 이 데이터에서 지지되지 않았습니다.</strong> 이 결과가 “기온은 오존과 관계없다”는 뜻은 아닙니다. 한 도시의 한 시즌, 단순 일별 지표만 사용했기 때문에 기온 하나로 오존 변동을 설명하기 어렵다는 의미에 가깝습니다. 후속 분석에서는 일사량, 강수, 상대습도, NOx/VOC, 풍향과 장거리 수송 등을 함께 고려할 필요가 있습니다.</p><div class="note"><strong>이 작업에서 중요하게 본 점</strong><br>처음 예상과 다른 결과가 나왔지만 가설의 방향을 결과에 맞춰 바꾸지 않았습니다. 전체 91일 결과와 가설에 어긋나는 사례도 함께 남겼습니다.</div><h2>재현 패키지 확인 사항</h2><p>원자료와 결과 숫자는 서로 일치합니다. 다만 기존 과제 10 ZIP에는 CSV 파일명과 <code>analysis.py</code>가 찾는 파일명이 서로 다른 연결 오류가 하나 있습니다. BR-A에서는 이 오류를 숨기지 않고 근거 문서에 남겼습니다.</p><h2>AI와 나의 판단</h2><p>AI는 공개 데이터 정리, 통계 계산, 그래프 작성과 논문 초안 작성을 보조했습니다. 주제 선택과 최초 가설은 결과를 보기 전에 직접 정했고, 분석 결과가 가설을 지지하지 않는다는 결론도 그대로 유지했습니다.</p></main></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>과제 10 | 서울 기온과 오존 관계 탐구</title>
+<style>
+:root{--bg:#f4e8e2;--paper:#fffaf4;--ink:#171717;--muted:#6d6765;--pink:#f36dac;--pink-soft:#ffd8e7;--line:#d9cec8;--max:920px;--radius:24px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.82;letter-spacing:-.018em}a{color:inherit;text-decoration:none}.shell{width:min(var(--max),calc(100% - 28px));margin:34px auto 80px}.back{display:inline-flex;min-height:42px;align-items:center;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:900;margin-bottom:18px}.paper{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,5vw,52px);box-shadow:0 10px 26px rgba(0,0,0,.06)}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--pink);margin-bottom:10px}h1{font-size:clamp(34px,5vw,56px);line-height:1.12;letter-spacing:-.06em;margin:0 0 14px;word-break:keep-all}.meta{color:var(--muted);margin:0 0 30px;font-size:14px}.summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 34px}.box{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}.box b{display:block;font-size:30px;line-height:1;margin-bottom:7px}.box span{font-size:12px;color:var(--muted)}h2{font-size:25px;margin:34px 0 10px;letter-spacing:-.04em;word-break:keep-all}p{margin:0 0 14px;word-break:keep-all}.note{background:var(--pink-soft);border-radius:18px;padding:18px;margin-top:22px}.note strong{display:block;margin-bottom:6px}.hypothesis{border-left:5px solid var(--pink);padding:4px 0 4px 16px;margin:22px 0 30px}.hypothesis strong{display:block;margin-bottom:4px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;min-height:42px;padding:9px 13px;border-radius:999px;border:1px solid var(--ink);background:#fff;font-size:13px;font-weight:900}.btn.primary{background:var(--ink);color:#fff}@media(max-width:640px){.summary{grid-template-columns:1fr}.paper{padding:22px}.shell{width:calc(100% - 18px)}}
+</style>
+</head>
+<body>
+<main class="shell">
+<a class="back" href="/SKT-ALEPH-profile/">← 포트폴리오로 돌아가기</a>
+<article class="paper">
+<div class="eyebrow">WORK 10 · RESEARCH</div>
+<h1>2025년 오존 시즌 서울의 일평균 기온과 일별 오존 자료값의 관계</h1>
+<p class="meta">공개 도시-일 데이터의 상관분석 · 오예림 · 2026.09.09</p>
+<div class="hypothesis"><strong>최초 가설</strong>서울의 일평균 기온이 높을수록 같은 날의 일평균 오존(O₃) 농도가 높을 것이다.</div>
+<div class="summary">
+<div class="box"><b>91일</b><span>1차 분석 표본</span></div>
+<div class="box"><b>r = -0.0697</b><span>Pearson 상관 · p = 0.5115</span></div>
+<div class="box"><b>ρ = -0.0479</b><span>Spearman 순위상관 · p = 0.6518</span></div>
+<div class="box"><b>R² = 0.00486</b><span>단순선형회귀 설명력</span></div>
+</div>
+<h2>연구 질문</h2>
+<p>기온과 오존은 관련될 수 있지만 일사량, 강수, 전구물질, 수송 등 여러 조건이 함께 작용합니다. 그래서 이번 연구에서는 범위를 좁혀 “2025년 4~6월 서울의 단순 일별 자료에서도 일평균 기온과 O₃ 자료값의 양의 관계가 나타나는가?”를 확인했습니다.</p>
+<h2>데이터와 방법</h2>
+<p>공개 환경자료에서 서울의 2025년 4월 1일부터 6월 30일까지 91일을 추출했습니다. 1차 분석은 일평균 기온과 같은 날 O₃ 자료값의 Pearson 상관이며, 보조적으로 Spearman 순위상관과 단순선형회귀를 확인했습니다. 결과에 유리한 행을 따로 제외하지 않았습니다.</p>
+<h2>결과</h2>
+<p>91일 전체에서 기온과 O₃ 자료값의 Pearson 상관은 -0.0697로 거의 0에 가까운 약한 음의 방향이었습니다. Spearman 상관도 -0.0479였고, 선형회귀의 R²는 0.00486으로 매우 작았습니다. 따라서 “기온이 높을수록 같은 날 O₃가 높다”는 단순한 양의 관계는 이 표본에서 확인되지 않았습니다.</p>
+<p>기온 사분위에서도 가장 높은 기온군이 가장 높은 O₃를 보이지 않았습니다. 월별 사후 분석에서는 6월에 r=-0.431, p=0.017의 음의 상관이 나타났지만, 이 분석은 1차 결과를 본 뒤 관계의 차이를 살펴본 사후 탐색이므로 독립적인 확증 결과로 과도하게 해석하지 않았습니다.</p>
+<h2>결론</h2>
+<p><strong>최초 가설은 이 데이터에서 지지되지 않았습니다.</strong> 이 결과가 “기온은 오존과 관계없다”는 뜻은 아닙니다. 한 도시의 한 시즌, 단순 일별 지표만 사용했기 때문에 기온 하나로 오존 변동을 설명하기 어렵다는 의미에 가깝습니다.</p>
+<div class="note"><strong>이 작업에서 중요하게 본 점</strong>처음 예상과 다른 결과가 나왔지만 가설의 방향을 결과에 맞춰 바꾸지 않았습니다. 전체 91일 결과와 가설에 어긋나는 사례도 함께 남겼습니다.</div>
+<h2>재현 패키지 확인 사항</h2>
+<p>원자료와 결과 숫자는 서로 일치합니다. 기존 과제 10 ZIP에는 CSV 파일명과 <code>analysis.py</code>가 찾는 파일명이 서로 다른 연결 오류가 한 건 있어, 이 사실을 숨기지 않고 기록했습니다.</p>
+<div class="actions"><a class="btn primary" href="/SKT-ALEPH-profile/">포트폴리오로 돌아가기</a><a class="btn" href="/SKT-ALEPH-profile/documents.html">지원 문서 보기</a></div>
+</article>
+</main>
+</body>
+</html>
