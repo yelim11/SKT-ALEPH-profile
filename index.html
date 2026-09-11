@@ -2,263 +2,32 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="오예림 포트폴리오">
 <title>오예림 | Portfolio</title>
 <style>
-:root{
-  --bg:#f7f3ef;
-  --paper:#fffdf9;
-  --pink:#e7a4be;
-  --pink-strong:#d9709e;
-  --pink-soft:#f7dfe8;
-  --ink:#171717;
-  --muted:#6f6868;
-  --line:#ded4d0;
-  --shadow:0 18px 40px rgba(62,45,52,.13);
-  --max:1180px;
-  --radius:22px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;letter-spacing:-.02em;line-height:1.7}
-a{color:inherit;text-decoration:none}
-h1,h2,h3,p{word-break:keep-all;overflow-wrap:normal}
-button,a{position:relative;z-index:3}
-.nav{position:sticky;top:0;z-index:50;background:rgba(247,243,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.07)}
-.navin{width:min(var(--max),calc(100% - 32px));height:64px;margin:auto;display:flex;align-items:center;gap:22px}
-.brand{font-weight:950;letter-spacing:-.04em}
-.navlinks{margin-left:auto;display:flex;gap:20px}
-.navlinks a{font-size:13px;font-weight:800;color:#5f5858;white-space:nowrap}
-.deck{width:min(var(--max),calc(100% - 32px));margin:30px auto 72px;display:grid;gap:28px}
-.slide{position:relative;isolation:isolate;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-height:620px;aspect-ratio:16/9}
-.slide>*{position:relative;z-index:2}
-.slide::before,.slide::after{content:"";position:absolute;z-index:0;pointer-events:none}
-.slide::before{width:190px;height:190px;border-radius:50%;background:rgba(231,164,190,.22);right:-85px;top:-85px}
-.slide::after{width:140px;height:140px;background:rgba(231,164,190,.16);left:-70px;bottom:-70px;transform:rotate(24deg)}
-.pink-slide{background:var(--pink)}
-.pink-slide::before{background:rgba(255,255,255,.18)}
-.pink-slide::after{background:rgba(255,255,255,.12)}
-.slide-inner{height:100%;padding:clamp(30px,4vw,54px);display:flex;flex-direction:column;justify-content:center}
-.eyebrow{font-size:12px;font-weight:950;letter-spacing:.14em;color:var(--pink-strong);margin-bottom:12px}
-.pink-slide .eyebrow{color:#fff}
-h1{font-size:clamp(52px,7vw,92px);line-height:.94;letter-spacing:-.075em;margin:0}
-h2{font-size:clamp(34px,4.2vw,58px);line-height:1.06;letter-spacing:-.06em;margin:0}
-h3{font-size:clamp(20px,2.1vw,30px);line-height:1.2;letter-spacing:-.04em;margin:0}
-.lead{font-size:clamp(22px,2.6vw,34px);font-weight:900;line-height:1.33;margin:18px 0 0;max-width:22em}
-.desc{font-size:15px;color:var(--muted);max-width:680px;margin:15px 0 0}
-.pink-slide .desc{color:rgba(20,20,20,.76)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--ink);background:#fff;font-size:13px;font-weight:900;transition:transform .2s ease,box-shadow .2s ease}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.10)}
-.btn.primary{background:var(--ink);color:#fff}
-.btn.soft{background:var(--pink-soft);border-color:#dca3ba}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;height:100%}
-.hero-copy{padding:clamp(32px,4.4vw,58px);display:flex;flex-direction:column;justify-content:center}
-.hero-art{position:relative;background:linear-gradient(160deg,#efb6cb,#f7e1e9);display:grid;place-items:center;border-left:1px solid var(--line)}
-.portrait-card{width:min(74%,360px);aspect-ratio:4/5;background:#f3eee9;border:1px solid rgba(0,0,0,.12);box-shadow:0 20px 34px rgba(0,0,0,.12);position:relative;overflow:hidden}
-.portrait-card::before{content:"OY";position:absolute;inset:0;display:grid;place-items:center;font-family:Georgia,"Times New Roman",serif;font-size:clamp(82px,9vw,150px);font-style:italic;font-weight:900;color:#d8749d;letter-spacing:-.08em}
-.portrait-card::after{content:"Game Software · Web · AI";position:absolute;left:18px;bottom:16px;font-size:11px;font-weight:900;letter-spacing:.08em}
-.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
-.meta-item{border-top:1px solid var(--line);padding-top:10px;font-size:14px;font-weight:800}
-.meta-item strong{display:block;font-size:11px;letter-spacing:.08em;color:var(--muted);margin-bottom:3px}
-.about{display:grid;grid-template-columns:1.15fr .85fr;height:100%}
-.about-copy{padding:clamp(32px,4vw,54px);display:flex;flex-direction:column;justify-content:center}
-.about-copy h2{color:#fff;max-width:15em}
-.about-copy p{max-width:700px;margin:18px 0 0;font-size:15px;color:rgba(22,22,22,.78)}
-.profile-card{margin:clamp(24px,3.5vw,44px);padding:26px;background:rgba(255,255,255,.86);border:1px solid rgba(255,255,255,.7);border-radius:18px;display:flex;flex-direction:column;justify-content:center}
-.profile-row{padding:12px 0;border-bottom:1px solid #e3d7db}
-.profile-row:last-child{border-bottom:0}
-.profile-row b{display:block;font-size:11px;color:#b95882;letter-spacing:.08em;margin-bottom:4px}
-.profile-row span,.profile-row a{font-size:16px;font-weight:850}
-.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.story-step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-height:270px}
-.story-step b{display:block;color:var(--pink-strong);font-size:12px;letter-spacing:.08em;margin-bottom:9px}
-.story-step h3{font-size:23px;margin-bottom:12px}
-.story-step p{font-size:14px;color:var(--muted);margin:0}
-.story-step .date{display:inline-block;margin-top:16px;padding:7px 10px;border-radius:999px;background:var(--pink-soft);font-size:12px;font-weight:900;color:#9f4469}
-.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-.strength{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-height:255px}
-.strength .num{font-size:12px;color:var(--pink-strong);font-weight:950;letter-spacing:.08em}
-.strength h3{font-size:23px;margin:9px 0 10px}
-.strength p{font-size:14px;color:var(--muted);margin:0}
-.evidence{margin-top:15px;padding-top:13px;border-top:1px dashed var(--line);font-size:12px;color:#7e7377}
-.analytics{display:grid;grid-template-columns:.72fr 1.28fr;height:100%}
-.analytics-copy{padding:clamp(30px,4vw,50px);display:flex;flex-direction:column;justify-content:center;background:#f6e8ed;border-right:1px solid var(--line)}
-.analytics-copy p{margin:14px 0 0;color:var(--muted);font-size:14px}
-.stats{padding:clamp(26px,3vw,40px);display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-content:center}
-.stat{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}
-.stat small{display:block;font-weight:900;color:var(--pink-strong);letter-spacing:.06em}
-.stat b{display:block;font-size:clamp(38px,4.4vw,58px);line-height:1;margin:10px 0 9px;letter-spacing:-.06em}
-.stat span{display:block;font-size:12px;line-height:1.55;color:var(--muted)}
-.work-layout{display:grid;grid-template-columns:1.12fr .88fr;height:100%}
-.work-main{padding:clamp(32px,4vw,52px);display:flex;flex-direction:column;justify-content:center}
-.work-main h2{max-width:12em}
-.work-main h3{margin:18px 0 11px}
-.work-main p{max-width:680px;color:var(--muted);font-size:15px;margin:0}
-.work-side{padding:clamp(28px,3.5vw,46px);background:var(--pink);display:flex;flex-direction:column;justify-content:center}
-.work-side h3{font-size:30px;margin:6px 0 12px}
-.work-side p{font-size:14px;color:rgba(20,20,20,.74);margin:0}
-.work-side .placeholder{margin-top:22px;height:170px;border:1px dashed rgba(0,0,0,.28);border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.22);font-size:13px;font-weight:900}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-.project{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;min-height:145px}
-.project b{display:block;color:var(--pink-strong);font-size:12px;margin-bottom:6px}
-.project h3{font-size:19px;margin-bottom:7px}
-.project p{font-size:13px;color:var(--muted);margin:0}
-.docs{display:grid;grid-template-columns:1fr 1fr;height:100%}
-.doc-panel{padding:clamp(34px,4.2vw,56px);display:flex;flex-direction:column;justify-content:center}
-.doc-panel+ .doc-panel{background:#f5e6ec;border-left:1px solid var(--line)}
-.doc-panel h3{font-size:32px;margin-bottom:12px}
-.doc-panel p{font-size:15px;color:var(--muted);max-width:520px;margin:0}
-.contact{height:100%;display:grid;grid-template-columns:1.15fr .85fr}
-.contact-main{padding:clamp(34px,4.2vw,56px);display:flex;flex-direction:column;justify-content:center}
-.contact-title{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:900;color:#fff;font-size:clamp(62px,7vw,104px);line-height:.82;letter-spacing:-.08em;margin:0}
-.contact-main p{margin:22px 0 0;max-width:590px;color:rgba(20,20,20,.75)}
-.contact-info{margin:clamp(26px,3.2vw,42px);padding:28px;background:#fff;border:1px solid rgba(255,255,255,.7);border-radius:18px;display:flex;flex-direction:column;justify-content:center}
-.contact-info h3{font-size:30px;margin-bottom:14px}
-.contact-info p{margin:5px 0;color:#514a4d;font-size:15px}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-.reveal.show{opacity:1;transform:none}
-@media(max-width:980px){
-  .slide{aspect-ratio:auto;min-height:680px}
-  .hero,.about,.analytics,.work-layout,.docs,.contact{grid-template-columns:1fr}
-  .hero-art{display:none}
-  .profile-card,.contact-info{margin:0 28px 28px}
-  .analytics-copy,.doc-panel+ .doc-panel{border-right:0;border-left:0;border-top:1px solid var(--line)}
-  .story-grid,.strength-grid,.projects-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:700px){
-  .navin{width:calc(100% - 20px);height:58px}
-  .navlinks{display:none}
-  .deck{width:calc(100% - 16px);margin-top:16px;gap:16px}
-  .slide{min-height:auto;border-radius:16px}
-  .slide-inner,.hero-copy,.about-copy,.analytics-copy,.work-main,.work-side,.doc-panel,.contact-main{padding:24px 20px}
-  h1{font-size:54px}
-  h2{font-size:36px}
-  .lead{font-size:23px}
-  .meta{grid-template-columns:1fr}
-  .story-grid,.strength-grid,.projects-grid,.stats{grid-template-columns:1fr}
-  .profile-card,.contact-info{margin:0 20px 20px}
-  .story-step,.strength{min-height:auto}
-}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+:root{--bg:#f6e2e6;--paper:#fffdfb;--ink:#191919;--muted:#66626b;--line:#dcc9cf;--pink:#f18ab6;--pink-deep:#e45f9a;--shadow:#ffcae0;--chip:#ffd8e8;--max:1160px;--radius:28px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.75;letter-spacing:-.015em;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.06) 1px,transparent 1px);background-size:18px 18px;opacity:.26;z-index:-2}a{color:inherit;text-decoration:none}h1,h2,h3,p{word-break:keep-all;overflow-wrap:break-word}.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+nav{position:sticky;top:0;z-index:50;background:rgba(246,226,230,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(25,25,25,.08)}.navin{height:68px;display:flex;align-items:center;gap:18px}.brand{font-weight:950;font-size:18px;letter-spacing:-.04em;margin-right:auto}.navin a:not(.brand){font-size:13px;font-weight:800;color:var(--muted)}
+.hero{padding:42px 0 28px}.hero-card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 10px 24px rgba(0,0,0,.08);position:relative;overflow:hidden}.hero-card{padding:34px;min-height:520px}.hero-grid{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:end;min-height:450px}.portrait-wrap{position:relative;align-self:end;padding-top:22px}.portrait-label{position:absolute;left:50%;top:0;transform:translateX(-50%);font-size:12px;font-weight:900;padding:7px 14px;border-radius:999px;background:var(--chip);z-index:2}.portrait{width:100%;max-width:250px;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#f3e6eb,#e7d8de);margin:auto;box-shadow:0 12px 24px rgba(0,0,0,.08);display:grid;place-items:center;color:#7c6d74;font-size:14px}.kicker{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--pink-deep);margin-bottom:8px}.big-title{position:relative;display:inline-block;margin:6px 0 18px}.big-title .line{display:block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(58px,10vw,122px);line-height:.78;font-weight:900;font-style:italic;letter-spacing:-.08em;color:var(--ink);text-shadow:8px 8px 0 var(--shadow);animation:floatY 4s ease-in-out infinite}.big-title .line:nth-child(2){animation-delay:.25s}.flower{position:absolute;left:24%;top:-24px;font-size:62px;color:var(--pink);line-height:1;transform:rotate(-8deg);animation:sway 6s ease-in-out infinite;pointer-events:none}.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.03;margin:0 0 10px;letter-spacing:-.06em}.one{font-size:clamp(21px,2.8vw,30px);font-weight:850;line-height:1.35;max-width:760px;margin:14px 0 10px}.sub{max-width:730px;color:var(--muted);font-size:16px;margin:0}.meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:20px;font-size:14px}.meta strong{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn,.mini{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;border:1px solid var(--ink);font-weight:850;font-size:13px;background:white;position:relative;z-index:4;transition:.2s ease}.btn:hover,.mini:hover{transform:translateY(-2px)}.btn.primary{background:var(--ink);color:#fff}.btn.soft{background:var(--chip);border-color:#f2b8cf}.star{position:absolute;width:120px;height:120px;background:#4a4a4a;clip-path:polygon(50% 0%,61% 19%,83% 7%,74% 29%,100% 25%,82% 45%,100% 50%,82% 56%,98% 77%,74% 71%,84% 94%,61% 81%,50% 100%,39% 81%,17% 94%,26% 71%,2% 77%,18% 56%,0% 50%,18% 45%,0% 25%,26% 29%,16% 7%,39% 19%);pointer-events:none;z-index:0}.star.a{left:-42px;top:-42px}.star.b{right:-44px;bottom:-44px;width:105px;height:105px}.tape{position:absolute;right:52px;top:42px;width:92px;height:52px;background:rgba(255,196,225,.7);transform:rotate(-18deg);pointer-events:none;z-index:0}
+section{padding:20px 0 8px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:16px}.section-head h2{margin:0;font-size:34px;line-height:1.1;letter-spacing:-.05em}.section-head p{margin:0;color:var(--muted);max-width:650px}.tag{display:inline-block;font-size:12px;font-weight:900;color:var(--pink-deep);letter-spacing:.1em;margin-bottom:8px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.panel{padding:24px}.panel h3{margin:0 0 10px;font-size:27px;line-height:1.15;letter-spacing:-.045em}.panel p{margin:0;color:#403d43}.muted{color:var(--muted)!important}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.chip{padding:7px 12px;border-radius:999px;background:var(--chip);font-size:13px;font-weight:750}.story p{font-size:16px;line-height:1.9;margin:0 0 14px}.story p:last-child{margin-bottom:0}.date{font-weight:900;color:var(--pink-deep)}.ability h3{font-size:24px}.ability ul{padding-left:18px;margin:12px 0 0}.ability li{margin:6px 0;color:var(--muted);font-size:14px}.evidence{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.stat b{display:block;font-size:42px;line-height:1;margin:10px 0 8px;letter-spacing:-.05em}.stat span{font-size:13px;color:var(--muted);display:block;line-height:1.6}.works{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.work{display:flex;flex-direction:column;min-height:270px}.work p{margin-bottom:18px}.work .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.mini{border-color:var(--line);padding:9px 12px}.placeholder{background:linear-gradient(180deg,#fffdfb,#ffeef4)}.contact{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}.contact-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,8vw,86px);font-weight:900;font-style:italic;line-height:.88;letter-spacing:-.08em;text-shadow:6px 6px 0 var(--shadow);margin:0}.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}.reveal.show{opacity:1;transform:none}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(4deg)}}
+@media(max-width:900px){.hero-grid,.grid3,.stats,.works,.contact{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.portrait{max-width:210px}.hero-card{padding:26px}.section-head{display:block}.section-head p{margin-top:8px}.star,.tape{display:none}}
+@media(max-width:700px){.navin a:not(.brand){display:none}.hero{padding-top:20px}.hero-card{padding:22px;min-height:0}.hero-grid{grid-template-columns:1fr;align-items:start}.portrait-wrap{order:2}.big-title .line{font-size:clamp(54px,18vw,82px)}.panel{padding:20px}.meta{gap:18px}.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="navin"><a class="brand" href="#home">OH YERIM</a><div class="navlinks"><a href="#about">About</a><a href="#story">Story</a><a href="#strengths">Strengths</a><a href="#numbers">Numbers</a><a href="#works">Works</a><a href="#contact">Contact</a></div></div></nav>
-
-<main class="deck">
-<section class="slide reveal" id="home">
-  <div class="hero">
-    <div class="hero-copy">
-      <div class="eyebrow">PORTFOLIO · 2026</div>
-      <h1>오예림</h1>
-      <p class="lead">막히면 방법을 바꾸고, 맡은 일은 끝까지 해보는 사람</p>
-      <p class="desc">계명대학교 게임소프트웨어학과에서 공부하며 웹과 AI를 활용한 작은 서비스들을 만들어 왔습니다. 잘 안 되는 날에는 기록을 남기고, 다시 시도해서 결과로 연결합니다.</p>
-      <div class="meta">
-        <div class="meta-item"><strong>EDUCATION</strong>계명대학교 게임소프트웨어학과</div>
-        <div class="meta-item"><strong>STATUS</strong>휴학 중</div>
-        <div class="meta-item"><strong>CHANNEL</strong>GitHub @yelim11</div>
-      </div>
-      <div class="actions"><a class="btn primary" href="#story">이야기부터 보기</a><a class="btn soft" href="#works">대표작 보기</a><a class="btn" href="documents.html">지원 문서</a></div>
-    </div>
-    <div class="hero-art" aria-hidden="true"><div class="portrait-card"></div></div>
-  </div>
-</section>
-
-<section class="slide pink-slide reveal" id="about">
-  <div class="about">
-    <div class="about-copy">
-      <div class="eyebrow">ABOUT ME</div>
-      <h2>잘 안 되는 날에도 다시 시작할 방법을 찾습니다.</h2>
-      <p>한 번에 완벽하게 해내는 편은 아닙니다. 대신 어디서 막혔는지 적어 두고, 다음에는 무엇을 바꿀지 생각합니다. 그렇게 미니게임부터 웹 도구, 다이어리, 인증 기능, 연구 과제까지 하나씩 결과물로 남겨 왔습니다.</p>
-    </div>
-    <div class="profile-card">
-      <div class="profile-row"><b>NAME</b><span>오예림</span></div>
-      <div class="profile-row"><b>EDUCATION</b><span>계명대학교 게임소프트웨어학과 휴학 중</span></div>
-      <div class="profile-row"><b>INTEREST</b><span>인터랙티브 웹 · 프론트엔드 · 기록 기반 서비스</span></div>
-      <div class="profile-row"><b>WORK STYLE</b><span>구현 → 기록 → 수정 → 검증</span></div>
-      <div class="profile-row"><b>GITHUB</b><a href="https://github.com/yelim11" target="_blank" rel="noopener">@yelim11</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="slide reveal" id="story">
-  <div class="slide-inner">
-    <div class="eyebrow">MY STORY</div>
-    <h2>흐트러진 날을 기록하고, 다시 움직이는 방식으로 바뀌었습니다.</h2>
-    <div class="story-grid">
-      <article class="story-step"><b>01 · 고난</b><h3>집중하지 못한 날</h3><p>2026년 8월 24일, 수업 집중 목표를 지키지 못했습니다. 해야 할 일을 알고 있는데도 계획대로 움직이지 못했고, 그 사실을 기록으로 남겼습니다.</p><span class="date">2026.08.24</span></article>
-      <article class="story-step"><b>02 · 다시 움직인 날</b><h3>순서를 다시 정했습니다.</h3><p>8월 28일에는 해야 할 일을 한꺼번에 붙잡지 않고 급한 순서대로 나눴습니다. 하나씩 끝내면서 체크하자 다시 진행할 수 있었습니다.</p><span class="date">2026.08.28</span></article>
-      <article class="story-step"><b>03 · 지금</b><h3>감정 대신 다음 행동을 고릅니다.</h3><p>9월 11일에는 “기분이 행동이 되지 않도록 인내력을 기르자”고 적었습니다. 완벽하지 않아도 멈추지 않고 다음 행동을 선택하는 습관이 전보다 분명해졌습니다.</p><span class="date">2026.09.11</span></article>
-    </div>
-  </div>
-</section>
-
-<section class="slide reveal" id="strengths">
-  <div class="slide-inner">
-    <div class="eyebrow">SKILL & EXPERTISE</div>
-    <h2>기록에서 반복해서 보인 세 가지 강점</h2>
-    <div class="strength-grid">
-      <article class="strength"><span class="num">01 · 자기조절력</span><h3>계획이 틀어져도 다시 정리합니다.</h3><p>8/24 집중 실패를 기록하고 8/28 우선순위를 다시 세웠습니다. 9/11에는 감정이 행동으로 바로 이어지지 않도록 인내하려고 했습니다.</p><div class="evidence">2026.08.24 · 08.28 · 09.11</div></article>
-      <article class="strength"><span class="num">02 · 대인관계력</span><h3>내 일만 끝내지 않고 팀의 빈 곳을 봅니다.</h3><p>8/20 먼저 해결한 내용을 팀원과 나눴고, 9/04에는 맡은 역할을 마친 뒤 필요한 순간 역할의 빈자리를 채웠습니다.</p><div class="evidence">2026.08.20 · 09.04</div></article>
-      <article class="strength"><span class="num">03 · 자기동기력</span><h3>이해가 안 되면 한 번 더 확인합니다.</h3><p>8/11 힘든 일을 끝까지 수행했고, 8/18에는 수업 뒤에도 남아 이해되지 않는 부분을 다시 확인했습니다.</p><div class="evidence">2026.08.11 · 08.18</div></article>
-    </div>
-  </div>
-</section>
-
-<section class="slide reveal" id="numbers">
-  <div class="analytics">
-    <div class="analytics-copy"><div class="eyebrow">ANALYTICS</div><h2>말보다 오래 남은 숫자들</h2><p>리추얼 기록, 회복 장면, 연구 데이터에서 확인한 숫자만 사용했습니다.</p></div>
-    <div class="stats">
-      <article class="stat"><small>리추얼 원본</small><b>23일</b><span>2026.08.11~09.11 기록일 수<br>출처: 리추얼 원본</span></article>
-      <article class="stat"><small>핵심 장면</small><b>7개</b><span>사이트 본문에 사용한 대표 날짜 장면 수<br>출처: 리추얼 기록 선별</span></article>
-      <article class="stat"><small>연구 표본</small><b>91일</b><span>서울 2025년 4~6월 분석 표본<br>출처: 과제 10 원자료</span></article>
-      <article class="stat"><small>회복 장면</small><b>4일</b><span>8/24 집중 실패 → 8/28 재정리<br>출처: 리추얼 기록</span></article>
-    </div>
-  </div>
-</section>
-
-<section class="slide reveal" id="works">
-  <div class="work-layout">
-    <article class="work-main"><div class="eyebrow">SELECTED WORK · 10</div><h2>예상과 다른 결과도 그대로 남긴 연구</h2><h3>서울의 기온과 오존 자료값 관계 탐구</h3><p>2025년 4~6월 서울의 91일 데이터를 분석했습니다. 전체 Pearson 상관계수는 -0.0697, p=0.5115였고 예상했던 단순한 양의 관계는 이 표본에서 확인되지 않았습니다.</p><div class="actions"><a class="btn primary" href="paper.html">논문 읽기</a></div></article>
-    <aside class="work-side"><div class="eyebrow">WORK 13 · APP</div><h3>다음 작업 · 준비 중</h3><p>완성한 뒤 실제 공개 URL과 제작 과정을 이 자리에 추가할 예정입니다.</p><div class="placeholder">APP PLACEHOLDER</div></aside>
-  </div>
-</section>
-
-<section class="slide reveal" id="projects">
-  <div class="slide-inner">
-    <div class="eyebrow">PREVIOUS PROJECTS</div>
-    <h2>수업에서 끝내지 않고, 직접 만들어 본 작업들</h2>
-    <div class="projects-grid">
-      <article class="project"><b>WEB GAME</b><h3>NEON MAZE 30</h3><p>30초 미로 게임. 유령 추적 규칙, 충돌 처리, 저장 기능과 접근성 옵션을 구현했습니다.</p></article>
-      <article class="project"><b>WEB TOOL</b><h3>짤·카드 스튜디오</h3><p>이미지·문구를 편집하고 여러 비율로 출력하는 브라우저 편집기를 만들었습니다.</p></article>
-      <article class="project"><b>DATA UI</b><h3>대구 오늘의 진짜 정보판</h3><p>실제 날씨 API를 사용하고, 실패 시 마지막 정상값을 유지하도록 구성했습니다.</p></article>
-      <article class="project"><b>PRODUCTIVITY</b><h3>PLAN DO SEE</h3><p>계획-실행-회고를 연결하는 다이어리를 만들고 인증·권한 제어까지 확장했습니다.</p></article>
-      <article class="project"><b>SECURITY</b><h3>Passkey Portfolio</h3><p>WebAuthn 패스키 기반 PRIVATE 영역을 가진 Node.js 서버 프로젝트를 구성했습니다.</p></article>
-      <article class="project"><b>RESEARCH</b><h3>기온과 오존 관계 탐구</h3><p>서울 91일 데이터를 분석하고 가설과 다른 결과도 그대로 보고했습니다.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="slide reveal" id="docs">
-  <div class="docs">
-    <article class="doc-panel"><div class="eyebrow">DOCUMENTS</div><h3>지원할 때 바로 꺼내볼 수 있도록 정리했습니다.</h3><p>이력서, 자기소개서, 프로젝트 기술서를 사이트와 같은 내용으로 정리했습니다.</p><div class="actions"><a class="btn primary" href="documents.html">지원 문서 보기</a></div></article>
-    <article class="doc-panel"><div class="eyebrow">REFRESH TOOL</div><h3>새 기록이 생기면 숫자와 문장 후보도 다시 만듭니다.</h3><p>같은 입력에서는 같은 결과가 나오도록 로컬 갱신 장치로 구성했습니다.</p><div class="actions"><a class="btn" href="refresh-tool.html">갱신 장치 보기</a></div></article>
-  </div>
-</section>
-
-<section class="slide pink-slide reveal" id="contact">
-  <div class="contact">
-    <div class="contact-main"><div class="eyebrow">CONTACT</div><p class="contact-title">let's work<br>together</p><p>막히면 방법을 바꾸고, 맡은 일은 끝까지 해보는 사람. 함께 만들고 싶은 작업이 있다면 GitHub에서 제 결과물을 확인해 주세요.</p><div class="actions"><a class="btn primary" href="https://github.com/yelim11" target="_blank" rel="noopener">GitHub @yelim11</a></div></div>
-    <div class="contact-info"><h3>오예림</h3><p>계명대학교 게임소프트웨어학과 휴학 중</p><p>인터랙티브 웹 · 프론트엔드 · 기록 기반 서비스</p><p>GitHub @yelim11</p></div>
-  </div>
-</section>
+<nav><div class="wrap navin"><a class="brand" href="#top">OH YERIM</a><a href="#about">About</a><a href="#story">Story</a><a href="#numbers">Numbers</a><a href="#works">Works</a><a href="#contact">Contact</a></div></nav>
+<main id="top">
+<section class="hero wrap"><div class="hero-card reveal show"><span class="star a"></span><span class="star b"></span><span class="tape"></span><div class="hero-grid"><div class="portrait-wrap"><span class="portrait-label">프로필</span><div class="portrait">프로필 사진 자리</div></div><div><div class="kicker">PORTFOLIO · 2026</div><div class="big-title" aria-hidden="true"><span class="flower">✿</span><span class="line">PORT</span><span class="line">FOLIO</span></div><h1>오예림</h1><p class="one">막히면 방법을 바꾸고, 맡은 일은 끝까지 해보는 사람</p><p class="sub">게임소프트웨어를 공부하며 웹과 AI를 활용한 결과물을 만들어 왔습니다. 잘 안 되는 부분은 기록으로 남기고, 다시 시도해 결과로 연결하는 편입니다.</p><div class="meta"><div><strong>전공</strong>계명대학교 게임소프트웨어학과</div><div><strong>상태</strong>휴학 중</div><div><strong>공개 채널</strong>GitHub @yelim11</div></div><div class="actions"><a class="btn primary" href="#story">3분 이야기 읽기</a><a class="btn soft" href="#works">대표작 보기</a><a class="btn" href="documents.html">지원 문서 보기</a></div></div></div></div></section>
+<section id="about" class="wrap"><div class="grid2"><article class="panel reveal"><div class="tag">ABOUT ME</div><h3>기록으로 스스로를 고쳐 가는 사람입니다.</h3><p class="muted">처음부터 완벽하게 해내는 편은 아니지만, 막힌 지점을 남기고 다시 방법을 바꿔 끝까지 연결하는 쪽에 가깝습니다. 그래서 결과물만이 아니라 과정의 기록도 함께 남깁니다.</p><div class="chips"><span class="chip">자기조절력</span><span class="chip">대인관계력</span><span class="chip">자기동기력</span><span class="chip">회복탄력성</span><span class="chip">과제지속력</span></div></article><article class="panel reveal"><div class="tag">PROFILE</div><h3>한눈에 보는 정보</h3><p><strong>이름</strong> 오예림</p><p><strong>학력</strong> 계명대학교 게임소프트웨어학과 휴학 중</p><p><strong>관심 분야</strong> 프론트엔드, 인터랙티브 웹, 기록 기반 서비스</p><p><strong>작업 방식</strong> 구현 → 기록 → 수정 → 검증</p><p><strong>작업 채널</strong> <a href="https://github.com/yelim11" target="_blank" rel="noopener">GitHub @yelim11</a></p></article></div></section>
+<section id="story" class="wrap"><div class="section-head reveal"><div><span class="tag">MY STORY</span><h2>고난에서 시작해, 다시 움직이는 방식으로 바뀌었습니다.</h2></div><p>소설의 감정선은 참고했지만, 이 글에는 실제 기록에서 확인되는 장면만 남겼습니다.</p></div><article class="panel story reveal"><p><span class="date">2026년 8월 24일</span>, 수업 집중 목표를 지키지 못했다고 적었습니다. 해야 할 일을 알고 있는데도 계획대로 움직이지 못한 날이었습니다. 기록을 남기고 나니 막연하게 자책하는 것보다 무엇이 안 됐는지를 보는 편이 낫다고 느꼈습니다.</p><p>며칠 뒤인 <span class="date">8월 28일</span>에는 방식을 바꿨습니다. 해야 할 일을 한꺼번에 보지 않고 먼저 순서를 정했습니다. 급한 것부터 하나씩 처리하고, 끝낸 것은 바로 확인했습니다. 일이 적어진 것은 아니었지만 무엇부터 해야 할지 정하니 다시 움직일 수 있었습니다. 제가 생각하는 자기조절력은 처음부터 계획을 완벽하게 지키는 능력보다, 흐트러졌을 때 다시 돌아오는 방법을 아는 데 더 가깝습니다.</p><p><span class="date">8월 20일</span>에는 AI 과제를 먼저 끝낸 뒤 다른 팀원이 막힌 부분을 같이 봤고, <span class="date">9월 4일</span> 팀 과제에서는 맡은 역할을 끝까지 수행하면서 필요한 순간에는 팀장의 빈자리도 채웠습니다. 실제 결과물은 각자 따로 끝내는 것보다 서로 상황을 공유할 때 더 잘 마무리됐습니다.</p><p><span class="date">8월 11일</span>에는 하기 싫고 힘든 일을 끝까지 해냈고, <span class="date">8월 18일</span>에는 수업이 끝난 뒤에도 남아 이해되지 않는 내용을 다시 확인했습니다. 이후 미니게임, 이미지 편집기, 날씨 정보판, 다이어리, 인증 기능, 패스키 페이지까지 결과물을 하나씩 만들었습니다.</p><p><span class="date">9월 11일</span> 기록에는 기분이 행동이 되지 않도록 인내력을 기르자고 적었습니다. 불편한 상황에서도 친절하게 응대했고, 동료들은 AI를 활용해 문제를 해결하는 점과 끝까지 자리에서 작업하는 몰입도를 장점으로 적었습니다.</p><p>아직 모르는 것이 많고, 한 번에 잘하지 못하는 일도 많습니다. 대신 막힌 지점을 기록하고 필요한 도구를 찾아 다시 실행해 결과를 남기는 방식은 제 습관이 됐습니다. 앞으로도 문제가 생겼을 때 다음 방법을 만들고 끝까지 결과로 연결하는 사람으로 일하고 싶습니다.</p></article></section>
+<section class="wrap"><div class="section-head reveal"><div><span class="tag">MY STRENGTHS</span><h2>세 가지 능력</h2></div><p>형용사보다 날짜와 행동이 보이는 장면으로 정리했습니다.</p></div><div class="grid3"><article class="panel ability reveal"><div class="tag">01 · 자기조절력</div><h3>계획이 틀어져도 다시 정리합니다.</h3><p class="muted">집중하지 못한 날을 기록한 뒤, 할 일을 작은 단위로 나누고 우선순위를 다시 세웠습니다.</p><ul><li>8/24 집중 목표 실패 기록</li><li>8/28 우선순위 재정리</li><li>9/11 감정이 행동이 되지 않도록 인내</li></ul><div class="evidence">근거: 리추얼 원본</div></article><article class="panel ability reveal"><div class="tag">02 · 대인관계력</div><h3>내 일만 끝내지 않고 팀의 빈 곳을 봅니다.</h3><p class="muted">먼저 해결한 내용을 팀원과 나누고, 필요한 역할이 비면 그 자리를 채우며 마무리했습니다.</p><ul><li>8/20 AI 과제 해결 내용 공유</li><li>9/04 팀 과제 빈 역할 보완</li><li>9/11 불편한 상황에서도 친절하게 응대</li></ul><div class="evidence">근거: 리추얼 원본</div></article><article class="panel ability reveal"><div class="tag">03 · 자기동기력</div><h3>이해가 안 되면 한 번 더 확인합니다.</h3><p class="muted">하기 싫은 일도 끝까지 이어가고, 이해되지 않는 내용은 다시 확인해 결과물로 연결했습니다.</p><ul><li>8/11 힘든 일을 끝까지 수행</li><li>8/18 수업 뒤 남아 다시 확인</li><li>과제 10 논문까지 결과물로 연결</li></ul><div class="evidence">근거: 리추얼 원본 + 과제 결과물</div></article></div></section>
+<section id="numbers" class="wrap"><div class="section-head reveal"><div><span class="tag">NUMBERS</span><h2>숫자로 남은 기록</h2></div><p>확인 가능한 범위 안에서만 정리했습니다.</p></div><div class="stats"><article class="panel stat reveal"><div class="tag">리추얼 원본</div><b>23일</b><span>2026.08.11~09.11 기록일 수<br>출처: 리추얼 원본</span></article><article class="panel stat reveal"><div class="tag">핵심 장면</div><b>7개</b><span>사이트 본문과 능력 설명에 사용한 대표 장면 수<br>출처: 리추얼 기록 선별</span></article><article class="panel stat reveal"><div class="tag">연구 표본</div><b>91일</b><span>2025년 4~6월 서울 기온·오존 분석 표본<br>출처: 과제 10 원자료</span></article><article class="panel stat reveal"><div class="tag">회복 장면</div><b>4일</b><span>8/24 집중 실패 → 8/28 재정리<br>출처: 리추얼 기록</span></article></div></section>
+<section id="works" class="wrap"><div class="section-head reveal"><div><span class="tag">SELECTED WORK</span><h2>대표작</h2></div><p>확인 가능한 작업만 넣었습니다.</p></div><div class="works"><article class="panel work reveal"><div class="tag">WORK 10 · RESEARCH</div><h3>서울의 기온과 오존 자료값 관계 탐구</h3><p class="muted">2025년 4~6월 서울의 91일 데이터를 분석했습니다. 전체 Pearson 상관계수는 -0.0697, p=0.5115였고 예상했던 단순한 양의 관계는 이 표본에서 확인되지 않았습니다. 결과를 가설에 맞추지 않고 그대로 해석했습니다.</p><div class="links"><a class="mini" href="paper.html">논문 읽기</a></div></article><article class="panel work placeholder reveal"><div class="tag">WORK 13 · APP</div><h3>13번 앱</h3><p class="muted">아직 완료되지 않은 과제라 결과물을 만들어 넣지 않았습니다. 완료 후 실제 공개 URL과 설명으로 교체할 예정입니다.</p><div class="links"><span class="mini">완료 후 추가 예정</span></div></article></div></section>
+<section class="wrap"><div class="grid2"><article class="panel reveal"><div class="tag">DOCUMENTS</div><h3>이력서 · 자기소개서 · 프로젝트 기술서</h3><p class="muted">사이트의 근거와 같은 내용으로 정리했습니다.</p><div class="actions"><a class="mini" href="documents.html">지원 문서 보기</a></div></article><article class="panel reveal"><div class="tag">REFRESH TOOL</div><h3>기록 갱신 장치</h3><p class="muted">새 리추얼 기록을 넣으면 숫자와 능력별 문단 후보를 다시 만들고, 같은 입력에서는 같은 결과가 나오도록 구성했습니다.</p><div class="actions"><a class="mini" href="refresh-tool.html">장치 설명 보기</a></div></article></div></section>
+<section id="contact" class="wrap"><article class="panel contact reveal"><div><div class="tag">CONTACT</div><p class="contact-title">contact<br>me</p><p class="muted">함께 만들고 싶은 작업이 있다면 아래 채널에서 확인해 주세요.</p><div class="actions"><a class="mini" href="https://github.com/yelim11" target="_blank" rel="noopener">GitHub @yelim11</a><a class="mini" href="documents.html">지원 문서</a></div></div><div><p><strong>오예림</strong></p><p>계명대학교 게임소프트웨어학과 휴학 중</p><p>막히면 방법을 바꾸고, 맡은 일은 끝까지 해보는 사람</p></div></article></section>
 </main>
-
-<script>
-const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting)entry.target.classList.add('show')})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach((el)=>observer.observe(el));
-</script>
+<script>const els=document.querySelectorAll('.reveal');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});els.forEach(el=>io.observe(el));</script>
 </body>
 </html>
